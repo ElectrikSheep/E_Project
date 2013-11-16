@@ -49,8 +49,6 @@
      <Compile Include="Assets\AndromedaSystem\Scripts\Andromeda System\AndromedaMonitorSystem.js" />
      <Compile Include="Assets\AndromedaSystem\Scripts\Animation Helper\LoopAnimation.js" />
      <Compile Include="Assets\AndromedaSystem\Scripts\Hologram Effect Helpers\DustAnimator.js" />
-     <Compile Include="Assets\SkyboxToggle.js" />
-     <Compile Include="Assets\chamferbox.js" />
      <None Include="Assets\AndromedaSystem\Shaders\HologramSemiSolid(BetterPerforming)+1.shader" />
      <None Include="Assets\Shaders\Planet.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
