@@ -44,6 +44,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\2) Script\CameraController\Camera_Controller.cs" />
+     <Compile Include="Assets\2) Script\CameraController\Camera_Desktop.cs" />
+     <Compile Include="Assets\2) Script\CameraController\Camera_Mobile.cs" />
      <Compile Include="Assets\2) Script\Environment\Ground_Controller.cs" />
      <Compile Include="Assets\2) Script\Gyro_Controller.cs" />
      <Compile Include="Assets\2) Script\MouseLook.cs" />
