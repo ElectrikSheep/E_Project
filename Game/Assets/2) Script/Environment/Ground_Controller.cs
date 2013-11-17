@@ -7,6 +7,9 @@ public class Ground_Controller : MonoBehaviour {
 		[SerializeField] private Transform playerPos;
 		[SerializeField] private Transform[] planes ;
 
+		[SerializeField] private float planeSize_Meters = 10f ;
+		private float half_Size;
+
 		int current_GridX, current_GridY ;
 		int previous_GridX, previous_GridY ;
 
@@ -20,13 +23,15 @@ public class Ground_Controller : MonoBehaviour {
 				current_GridX = current_GridY = 0 ;
 				current_Tile = 0;
 
+				half_Size = planeSize_Meters/2f ;
+
 				futurePlanePos = Vector3.zero ;
 
 				for(int i=0; i<planes.Length; i++ ){
 						planes[i].position = futurePlanePos ;
-						futurePlanePos.z += 10f ;
+						futurePlanePos.z += planeSize_Meters ;
 				}
-				futurePlanePos.z -= 10f ;
+				futurePlanePos.z -= planeSize_Meters ;
 		}
 
 
@@ -36,18 +41,21 @@ public class Ground_Controller : MonoBehaviour {
 
 		private void CheckFor_PlayerPosition() {
 				if( playerPos.position.x >0f ) {
-						current_GridX = (int)((playerPos.position.x+5f)/10f) ;
+						current_GridX = (int)((playerPos.position.x+half_Size)/planeSize_Meters) ;
 				}
 				else {
-						current_GridX = (int)((playerPos.position.x-5f)/10f) ;
+						current_GridX = (int)((playerPos.position.x-half_Size)/planeSize_Meters) ;
 				}
-				current_GridY =(int)((playerPos.position.z+5f)/10f) ;
+				current_GridY =(int)((playerPos.position.z+half_Size)/planeSize_Meters) ;
 
 				if( current_GridX != previous_GridX ){
-						futurePlanePos.x = current_GridX>previous_GridX ? futurePlanePos.x+10f :futurePlanePos.x-10f;
+						futurePlanePos.x = 
+								current_GridX>previous_GridX ? 
+								futurePlanePos.x+planeSize_Meters :
+								futurePlanePos.x-planeSize_Meters;
 				}
 				if( current_GridY != previous_GridY ){
-						futurePlanePos.z += 10f ;
+						futurePlanePos.z += planeSize_Meters ;
 						planes[current_Tile].position = futurePlanePos ;
 						current_Tile = current_Tile == planes.Length-1 ? 0 : current_Tile +1 ;
 				}
