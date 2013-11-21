@@ -50,6 +50,11 @@
      <Compile Include="Assets\2) Script\Environment\Ground_Controller.cs" />
      <Compile Include="Assets\2) Script\Gyro_Controller.cs" />
      <Compile Include="Assets\2) Script\MouseLook.cs" />
+     <Compile Include="Assets\2) Script\PlayerController\Arms_Controller.cs" />
+     <Compile Include="Assets\2) Script\PlayerController\Movement_Controller.cs" />
+     <Compile Include="Assets\2) Script\PlayerController\Movement_Desktop.cs" />
+     <Compile Include="Assets\2) Script\PlayerController\Movement_Generic.cs" />
+     <Compile Include="Assets\2) Script\PlayerController\Movement_Mobile.cs" />
      <Compile Include="Assets\2) Script\Scene_Controller.cs" />
      <Compile Include="Assets\2) Script\UI_Script\Load_Scene.cs" />
      <Compile Include="Assets\AndromedaSystem\Scripts\Billboard\Billboard.cs" />

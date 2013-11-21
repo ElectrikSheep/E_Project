@@ -12,14 +12,11 @@ using Camera_Control = Camera_Mobile ;
 
 public class Camera_Controller : MonoBehaviour {
 
-	
 	[SerializeField] private float max_X = -360 ;
 	[SerializeField] private float min_X = 360 ;
 
 	[SerializeField] private float max_Y = -60f;
 	[SerializeField] private float min_Y = 60f;
-
-	[SerializeField] private bool is_Gyro ;
 
 	private void Start() {
 		Camera_Control.Initialisation( transform, min_X, max_X, min_Y, max_Y ) ;

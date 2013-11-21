@@ -1,16 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../respimat/Unity/Assets/Scripts/UI/Link_Points.cs">
-    <Files>
-      <File FileName="Assets/2) Script/UI_Script/Load_Scene.cs" Line="11" Column="26" />
-      <File FileName="Assets/2) Script/Environment/Ground_Controller.cs" Line="58" Column="43" />
-      <File FileName="Assets/2) Script/Scene_Controller.cs" Line="7" Column="42" />
-      <File FileName="Assets/2) Script/CameraController/Camera_Controller.cs" Line="6" Column="32" />
-      <File FileName="Assets/2) Script/CameraController/Camera_Desktop.cs" Line="49" Column="11" />
-      <File FileName="Assets/2) Script/Gyro_Controller.cs" Line="1" Column="1" />
-      <File FileName="../../respimat/Unity/Assets/Scripts/UI/Link_Points.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
