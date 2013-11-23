@@ -7,8 +7,11 @@ public class Character_Controller : MonoBehaviour {
 		[SerializeField] private ParticleSystem _fireEffect ;
 		[SerializeField] private ParticleSystem _confettis ;
 
+		[SerializeField] private AudioClip[] _voiceOver ;
 
 		private bool is_Shooting = false ;
+		private AudioSource _as ;
+
 
 		[HideInInspector] public static Vector3 _position = Vector3.zero ;
 
@@ -20,6 +23,7 @@ public class Character_Controller : MonoBehaviour {
 
 
 		private void Start() {
+				_as = gameObject.GetComponent<AudioSource>() ;
 				is_Shooting = true ;
 				StartCoroutine( PlayEntrance_Animation() );
 		}
@@ -56,6 +60,7 @@ public class Character_Controller : MonoBehaviour {
 						_confettis.transform.position = hitPosition.point ;
 						hitPosition.collider.gameObject.SendMessage("End_ofLife", SendMessageOptions.DontRequireReceiver );
 						_confettis.Play();
+						PlayAudio() ;
 				}
 
 				while( _animation.isPlaying ){
@@ -88,5 +93,14 @@ private void Damage_Target( GameObject _target ) {
 
 		}
 
+
+		private void PlayAudio() {
+				if(_as.isPlaying ) return ;
+
+				if( Random.Range(1, 10) > 7 ){
+						_as.clip = _voiceOver[Random.Range(0, _voiceOver.Length)];
+						_as.Play() ;
+				}
+		}
 
 }
