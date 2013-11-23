@@ -1892,7 +1892,10 @@ ModelImporter:
     4300008: polySurface60
     4300010: polySurface61
     4300012: polySurface62
-    7400000: Take 001
+    7400000: walk
+    7400002: intro
+    7400004: run
+    7400006: shoot
     9500000: //RootNode
     11100000: //RootNode
     13700000: polySurface6
@@ -1909,11 +1912,74 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 2
     clipAnimations:
-    - name: Take 001
+    - name: intro
+      takeName: Take 001
+      firstFrame: 35
+      lastFrame: 85
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      transformMask: []
+    - name: walk
+      takeName: Take 001
+      firstFrame: 85
+      lastFrame: 125
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      transformMask: []
+    - name: run
       takeName: Take 001
       firstFrame: 125
-      lastFrame: 215
-      wrapMode: 2
+      lastFrame: 145
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      transformMask: []
+    - name: shoot
+      takeName: Take 001
+      firstFrame: 165
+      lastFrame: 215.000015
+      wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0

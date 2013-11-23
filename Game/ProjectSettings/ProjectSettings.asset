@@ -5,10 +5,10 @@ PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   AndroidProfiler: 0
-  defaultScreenOrientation: 2
+  defaultScreenOrientation: 3
   targetDevice: 2
   targetGlesGraphics: 1
-  targetResolution: 0
+  targetResolution: 6
   accelerometerFrequency: 60
   companyName: ElectrikSheep
   productName: Space Walk
@@ -69,7 +69,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  iPhoneBundleIdentifier: com.Company.ProductName
+  iPhoneBundleIdentifier: com.ElectrikSheep.SpaceWalk
   productGUID: ef910d437f4604e0ea94fbfd167e6378
   iPhoneBundleVersion: 1.0
   AndroidBundleVersionCode: 1
@@ -77,14 +77,14 @@ PlayerSettings:
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   apiCompatibilityLevel: 2
-  iPhoneStrippingLevel: 0
+  iPhoneStrippingLevel: 3
   iPhoneScriptCallOptimization: 0
   ForceInternetPermission: 0
   ForceSDCardPermission: 0
   CreateWallpaper: 0
   APKExpansionFiles: 0
   StripUnusedMeshComponents: 0
-  iPhoneSdkVersion: 989
+  iPhoneSdkVersion: 988
   iPhoneTargetOSVersion: 22
   uIPrerenderedIcon: 0
   uIRequiresPersistentWiFi: 0

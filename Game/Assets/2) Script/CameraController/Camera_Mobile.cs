@@ -1,72 +1,190 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Camera_Mobile : MonoBehaviour {
+public class Camera_Mobile : MonoBehaviour
+{
+		private static Transform _transform;
+		private static Gyroscope gyroRef;
 
-	
-	private static float deltaXAngle;
-	private static float deltaYAngle;
+		private static bool gyroEnabled = true;
+		private const float lowPassFilterFactor = 0.2f;
+		private static float tempValue = 0f ;
+		private static Vector3 tempVector ;
+		private static readonly Quaternion baseIdentity = Quaternion.Euler (90, 0, 0);
 
-	private static Transform _transform ;
-	private static bool gyroAvailable;
+		private static Quaternion cameraBase = Quaternion.identity;
+		private static Quaternion calibration = Quaternion.identity;
+		private static Quaternion baseOrientation = Quaternion.Euler (90, 0, 0);
+		private static Quaternion baseOrientationRotationFix = Quaternion.identity;
+		private static Quaternion referanceRotation = Quaternion.identity;
 
-	private static Gyroscope gyro;
-	private static Quaternion rotationFix;
+		public static float minimumX = -360f;
+		public static float maximumX = 360f;
+		public static float minimumY = -60f;
+		public static float maximumY = 60f;
 
-	public static void Initialisation ( Transform _t, float min_X, float max_X, float min_Y, float max_Y) {
-		
-		Debug.Log("Camera set to use Mobile controls");
+		public static void Initialisation (Transform _t, float min_X, float max_X, float min_Y, float max_Y)
+		{
+				Debug.Log ("Camera set to use Mobile controls");
 
-		// Cache the transform reference for efficiency.
-		_transform = _t;
+				// Cache the transform reference for efficiency.
+				_transform = _t;
+				minimumX = min_X;
+				minimumY = min_Y;
+				maximumX = max_X;
+				maximumY = max_Y;
 
-		var originalParent = _transform.parent; // check if this transform has a parent
-		var cameraObject = new GameObject("CameraMotion"); // make a new parent
-		cameraObject.transform.position = _transform.position; // move the new parent to this transform position
-		_transform.parent = cameraObject.transform; // make this transform a child of the new parent
-		cameraObject.transform.parent = originalParent; // make the new parent a child of the original parent
-
-		// if iPhone5, decrease the FOV
-		//if (iPhone.generation == iPhoneGeneration.iPhone5 || iPhone.generation == iPhoneGeneration.iPodTouch5Gen)
-		//	gameObject.GetComponent<Camera>().fov = 60f;
-
-		gyroAvailable = SystemInfo.supportsGyroscope;
-
-		if (gyroAvailable) {
-
-			Input.ResetInputAxes();
-			gyro = Input.gyro;
-			gyro.enabled = true;
-
-			cameraObject.transform.eulerAngles = new Vector3(90f, 90f, 0);
-			if (Screen.orientation == ScreenOrientation.LandscapeLeft) {
-				rotationFix = Quaternion.Euler(0f, 0f, 180f);
-			} else if (Screen.orientation == ScreenOrientation.Portrait) {
-				rotationFix = Quaternion.Euler(0f, 0f, 90f);
-			} else if (Screen.orientation == ScreenOrientation.PortraitUpsideDown) {
-				rotationFix = Quaternion.Euler(0f, 0f, 270f);
-			} else {
-				rotationFix = Quaternion.Euler(0f, 0f, 0f);
-			}
-
-		} else {
-			Debug.Log("NO GYRO");
+				AttachGyro() ;
 		}
-	}
 
-	public static void Camera_Update() {}
-	public static void Camera_LateUpdate() {
-		if (!gyroAvailable) 
-			return ;
-		else 
-			_transform.localRotation = gyro.attitude * rotationFix;
-	}
+		public static void Camera_Update ()
+		{
+		}
 
-	public static void CleanUP() {
+		public static void Camera_LateUpdate ()
+		{
+				if (!gyroEnabled)
+						return;
+				_transform.rotation = Quaternion.Slerp (_transform.rotation,
+						cameraBase * (ConvertRotation (referanceRotation * gyroRef.attitude) * GetRotFix ()), lowPassFilterFactor);
+				/*
+				tempValue = _transform.localEulerAngles.y ;
+				tempValue = Mathf.Clamp (tempValue, minimumY, maximumY);
+				tempVector.y = tempValue ;
 
-	}
-	
+				Debug.Log("Old pos : " + _transform.localEulerAngles );
 
+				tempValue = _transform.localEulerAngles.x ;
+				if( tempValue > maximumX ){
+						if( tempValue <= 180f ) 
+								tempValue = maximumX ;
+						else 
+								tempValue = (tempValue < (360f+minimumX)) ? (360f+minimumX) : tempValue ;
+				}
+				tempVector.x = tempValue ;
+				tempVector.z = 0f ;
+				_transform.localEulerAngles = tempVector ;
 
+				Debug.Log("New pos : " + _transform.localEulerAngles );
+				*/
+		}
 
+		/// <summary>
+		/// Attaches gyro controller to the transform.
+		/// </summary>
+		private static void AttachGyro ()
+		{
+				gyroEnabled = SystemInfo.supportsGyroscope;
+				if( !gyroEnabled ){
+						Debug.LogError("NO GYRO") ;
+						return ;
+				}
+				gyroRef = Input.gyro ;
+				ResetBaseOrientation ();
+				UpdateCalibration (true);
+				UpdateCameraBaseRotation (true);
+				RecalculateReferenceRotation ();
+		}
+
+		/// <summary>
+		/// Detaches gyro controller from the transform
+		/// </summary>
+		private static void DetachGyro ()
+		{
+				gyroEnabled = false;
+		}
+
+		/// <summary>
+		/// Update the gyro calibration.
+		/// </summary>
+		private static void UpdateCalibration (bool onlyHorizontal)
+		{
+				if (onlyHorizontal) {
+						var fw = (gyroRef.attitude) * (-Vector3.forward);
+						fw.z = 0;
+						if (fw == Vector3.zero) {
+								calibration = Quaternion.identity;
+						} else {
+								calibration = (Quaternion.FromToRotation (baseOrientationRotationFix * Vector3.up, fw));
+						}
+				} else {
+						calibration = gyroRef.attitude;
+				}
+		}
+
+		/// <summary>
+		/// Update the camera base rotation.
+		/// </summary>
+		/// <param name='onlyHorizontal'>
+		/// Only y rotation.
+		/// </param>
+		private static void UpdateCameraBaseRotation (bool onlyHorizontal)
+		{
+				if (onlyHorizontal) {
+						var fw = _transform.forward;
+						fw.y = 0;
+						if (fw == Vector3.zero) {
+								cameraBase = Quaternion.identity;
+						} else {
+								cameraBase = Quaternion.FromToRotation (Vector3.forward, fw);
+						}
+				} else {
+						cameraBase = _transform.rotation;
+				}
+		}
+
+		/// <summary>
+		/// Converts the rotation from right handed to left handed.
+		/// </summary>
+		/// <returns>
+		/// The result rotation.
+		/// </returns>
+		/// <param name='q'>
+		/// The rotation to convert.
+		/// </param>
+		private static Quaternion ConvertRotation (Quaternion q)
+		{
+				return new Quaternion (q.x, q.y, -q.z, -q.w);	
+		}
+
+		/// <summary>
+		/// Gets the rot fix for different orientations.
+		/// </summary>
+		/// <returns>
+		/// The rot fix.
+		/// </returns>
+		private static Quaternion GetRotFix ()
+		{
+				#if UNITY_3_5
+				if (Screen.orientation == ScreenOrientation.Portrait)
+				return Quaternion.identity;
+
+				if (Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.Landscape)
+				return Quaternion.Euler (0, 0, -90);
+
+				if (Screen.orientation == ScreenOrientation.LandscapeRight)
+				return Quaternion.Euler (0, 0, 90);
+
+				if (Screen.orientation == ScreenOrientation.PortraitUpsideDown)
+				return Quaternion.Euler (0, 0, 180);;
+				#endif
+				return Quaternion.identity;
+		}
+
+		/// <summary>
+		/// Recalculates reference system.
+		/// </summary>
+		private static void ResetBaseOrientation ()
+		{
+				baseOrientationRotationFix = GetRotFix ();
+				baseOrientation = baseOrientationRotationFix * baseIdentity;
+		}
+
+		/// <summary>
+		/// Recalculates reference rotation.
+		/// </summary>
+		private static void RecalculateReferenceRotation ()
+		{
+				referanceRotation = Quaternion.Inverse (baseOrientation) * Quaternion.Inverse (calibration);
+		}
 }
