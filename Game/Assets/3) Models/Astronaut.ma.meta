@@ -1,0 +1,135 @@
+fileFormatVersion: 2
+guid: 7170df433d5954e928c941aa20f00c57
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Astronaut:Group4
+    100004: Astronaut:polySurface128
+    100006: Astronaut:polySurface129
+    100008: Astronaut:polySurface130
+    100010: Astronaut:polySurface131
+    100012: Astronaut:polySurface270
+    100014: Astronaut:polySurface274
+    100016: Astronaut:polySurface275
+    100018: Astronaut:polySurface276
+    100020: Astronaut:polySurface279
+    100022: Astronaut:polySurface280
+    100024: Astronaut:polySurface281
+    100026: Astronaut:pSphere2
+    100028: Astronaut:pSphere3
+    100030: Astronaut:pPrism1
+    400000: //RootNode
+    400002: Astronaut:Group4
+    400004: Astronaut:polySurface128
+    400006: Astronaut:polySurface129
+    400008: Astronaut:polySurface130
+    400010: Astronaut:polySurface131
+    400012: Astronaut:polySurface270
+    400014: Astronaut:polySurface274
+    400016: Astronaut:polySurface275
+    400018: Astronaut:polySurface276
+    400020: Astronaut:polySurface279
+    400022: Astronaut:polySurface280
+    400024: Astronaut:polySurface281
+    400026: Astronaut:pSphere2
+    400028: Astronaut:pSphere3
+    400030: Astronaut:pPrism1
+    2300000: Astronaut:Group4
+    2300002: Astronaut:polySurface128
+    2300004: Astronaut:polySurface129
+    2300006: Astronaut:polySurface130
+    2300008: Astronaut:polySurface131
+    2300010: Astronaut:polySurface270
+    2300012: Astronaut:polySurface274
+    2300014: Astronaut:polySurface275
+    2300016: Astronaut:polySurface276
+    2300018: Astronaut:polySurface279
+    2300020: Astronaut:polySurface280
+    2300022: Astronaut:polySurface281
+    2300024: Astronaut:pSphere2
+    2300026: Astronaut:pSphere3
+    2300028: Astronaut:pPrism1
+    3300000: Astronaut:Group4
+    3300002: Astronaut:polySurface128
+    3300004: Astronaut:polySurface129
+    3300006: Astronaut:polySurface130
+    3300008: Astronaut:polySurface131
+    3300010: Astronaut:polySurface270
+    3300012: Astronaut:polySurface274
+    3300014: Astronaut:polySurface275
+    3300016: Astronaut:polySurface276
+    3300018: Astronaut:polySurface279
+    3300020: Astronaut:polySurface280
+    3300022: Astronaut:polySurface281
+    3300024: Astronaut:pSphere2
+    3300026: Astronaut:pSphere3
+    3300028: Astronaut:pPrism1
+    4300000: Astronaut:polySurface128
+    4300002: Astronaut:polySurface129
+    4300004: Astronaut:pSphere2
+    4300006: Astronaut:Group4
+    4300008: Astronaut:pSphere3
+    4300010: Astronaut:polySurface270
+    4300012: Astronaut:polySurface276
+    4300014: Astronaut:polySurface130
+    4300016: Astronaut:polySurface131
+    4300018: Astronaut:polySurface274
+    4300020: Astronaut:polySurface275
+    4300022: Astronaut:polySurface279
+    4300024: Astronaut:polySurface280
+    4300026: Astronaut:polySurface281
+    4300028: Astronaut:pPrism1
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 2
+  userData: 

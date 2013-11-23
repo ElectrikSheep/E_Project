@@ -47,10 +47,13 @@
      <Compile Include="Assets\2) Script\CameraController\Camera_Controller.cs" />
      <Compile Include="Assets\2) Script\CameraController\Camera_Desktop.cs" />
      <Compile Include="Assets\2) Script\CameraController\Camera_Mobile.cs" />
+     <Compile Include="Assets\2) Script\Environment\Astronaut_Controller.cs" />
+     <Compile Include="Assets\2) Script\Environment\Enemy_Spawner.cs" />
      <Compile Include="Assets\2) Script\Environment\Ground_Controller.cs" />
      <Compile Include="Assets\2) Script\Gyro_Controller.cs" />
      <Compile Include="Assets\2) Script\MouseLook.cs" />
      <Compile Include="Assets\2) Script\PlayerController\Arms_Controller.cs" />
+     <Compile Include="Assets\2) Script\PlayerController\Character_Controller.cs" />
      <Compile Include="Assets\2) Script\PlayerController\Movement_Controller.cs" />
      <Compile Include="Assets\2) Script\PlayerController\Movement_Desktop.cs" />
      <Compile Include="Assets\2) Script\PlayerController\Movement_Generic.cs" />
@@ -142,6 +145,7 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITexture.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
+     <Compile Include="Assets\Scripts\GyroController.cs" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\AndromedaSystem\Shaders\HologramSemiSolid(BetterPerforming)+1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text (SoftClip).shader" />
