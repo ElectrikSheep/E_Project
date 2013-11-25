@@ -13,6 +13,10 @@ public class Enemy_Spawner : MonoBehaviour {
 
 		[SerializeField]
 		private Transform _playerPos ;
+	
+	[SerializeField] private float minZDistance;
+	[SerializeField] private float maxZDistance ;
+	[SerializeField] private float XDistance;
 
 		private Astronaut_Controller[] EnemyArray ;
 		private BitArray idle_Enemy ;
@@ -96,8 +100,8 @@ public class Enemy_Spawner : MonoBehaviour {
 		}
 
 		private Vector2 Get_RandomPosition( ) {
-				float angle = Random.Range(-20f, 20f) ;
-				float distance = Random.Range( 45f,85f);
+				float angle = Random.Range(-XDistance, XDistance) ;
+				float distance = Random.Range( minZDistance,maxZDistance);
 				return new Vector2(
 						_playerPos.position.x + angle ,//distance * Mathf.Cos( angle ),
 						_playerPos.position.z + distance );//* Mathf.Sin( angle ) );
