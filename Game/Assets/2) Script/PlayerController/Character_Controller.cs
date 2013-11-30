@@ -36,6 +36,8 @@ public class Character_Controller : MonoBehaviour {
 						yield return null ;
 				}
 
+				Movement_Controller.Set_IntroTo( false ) ;
+
 				_animation["walk"].wrapMode = WrapMode.Loop ;
 				_animation.Play("walk") ;
 
@@ -58,7 +60,7 @@ public class Character_Controller : MonoBehaviour {
 						Debug.Log("HIT:"+hitPosition.collider.name ) ;
 						//Damage_Target( hitPosition.collider.gameObject );
 						_confettis.transform.position = hitPosition.point ;
-						hitPosition.collider.gameObject.SendMessage("End_ofLife", SendMessageOptions.DontRequireReceiver );
+						hitPosition.collider.gameObject.SendMessage("Decrease_LifePoint", 1, SendMessageOptions.DontRequireReceiver );
 						_confettis.Play();
 						PlayAudio() ;
 				}

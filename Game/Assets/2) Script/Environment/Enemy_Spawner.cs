@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class Enemy_Spawner : MonoBehaviour {
 
+
+		public static float KILLING_DISTANCE ;
+
 		public bool manage_OverFlow = false ;
 		public int number_ToSpawn = 0 ;
 		private static int EnemyCount ;
@@ -13,6 +16,14 @@ public class Enemy_Spawner : MonoBehaviour {
 
 		[SerializeField]
 		private Transform _playerPos ;
+
+		[SerializeField]
+		private float killDistance = 10f ;
+
+
+		[SerializeField] private float closeSpawnDistance = 20f ;
+		[SerializeField] private float farSpawnDistance = 40f ;
+		[SerializeField] private float wideSpawnDistance = 30f ;
 
 		private Astronaut_Controller[] EnemyArray ;
 		private BitArray idle_Enemy ;
@@ -28,6 +39,8 @@ public class Enemy_Spawner : MonoBehaviour {
 
 		// Use this for initialization
 		void Start () {
+				KILLING_DISTANCE = killDistance ;
+
 				//for( int i=0; i<transform.childCount; i++ ) 
 				//	Instantiate( _referencePrefab, Get_RandomPosition(), Quaternion.identity );
 				// Spawn_Population( number_ToSpawn ) ;
@@ -96,7 +109,7 @@ public class Enemy_Spawner : MonoBehaviour {
 		}
 
 		private Vector2 Get_RandomPosition( ) {
-				float angle = Random.Range(-20f, 20f) ;
+				float angle = Random.Range(-wideSpawnDistance, wideSpawnDistance) ;
 				float distance = Random.Range( 45f,85f);
 				return new Vector2(
 						_playerPos.position.x + angle ,//distance * Mathf.Cos( angle ),

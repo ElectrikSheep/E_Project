@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Camera_Mobile : MonoBehaviour
+public class Camera_Mobile 
 {
-		private static Transform _transform;
 		private static Gyroscope gyroRef;
 
 		private static bool gyroEnabled = true;
@@ -18,38 +17,21 @@ public class Camera_Mobile : MonoBehaviour
 		private static Quaternion baseOrientationRotationFix = Quaternion.identity;
 		private static Quaternion referanceRotation = Quaternion.identity;
 
-		public static float minimumX = -360f;
-		public static float maximumX = 360f;
-		public static float minimumY = -60f;
-		public static float maximumY = 60f;
-
-		public static void Initialisation (Transform _t, float min_X, float max_X, float min_Y, float max_Y)
+		public static void Initialisation ()
 		{
 				Debug.Log ("Camera set to use Mobile controls");
-
-				// Cache the transform reference for efficiency.
-				_transform = _t;
-				minimumX = min_X;
-				minimumY = min_Y;
-				maximumX = max_X;
-				maximumY = max_Y;
-
 				AttachGyro() ;
-		}
-
-		public static void Camera_Update ()
-		{
 		}
 
 		public static void Camera_LateUpdate ()
 		{
 				if (!gyroEnabled)
 						return;
-				_transform.rotation = Quaternion.Slerp (_transform.rotation,
+				Camera_Controller.head.rotation = Quaternion.Slerp (Camera_Controller.head.rotation,
 						cameraBase * (ConvertRotation (referanceRotation * gyroRef.attitude) * GetRotFix ()), lowPassFilterFactor);
 				/*
 				tempValue = _transform.localEulerAngles.y ;
-				tempValue = Mathf.Clamp (tempValue, minimumY, maximumY);
+				tempValue = Mathf.Clamp (tempValue, minimumY, Camera_Controller.max_Y);
 				tempVector.y = tempValue ;
 
 				Debug.Log("Old pos : " + _transform.localEulerAngles );
@@ -59,7 +41,7 @@ public class Camera_Mobile : MonoBehaviour
 						if( tempValue <= 180f ) 
 								tempValue = maximumX ;
 						else 
-								tempValue = (tempValue < (360f+minimumX)) ? (360f+minimumX) : tempValue ;
+								tempValue = (tempValue < (360f+Camera_Controller.min_X)) ? (360f+Camera_Controller.min_X) : tempValue ;
 				}
 				tempVector.x = tempValue ;
 				tempVector.z = 0f ;
@@ -121,7 +103,7 @@ public class Camera_Mobile : MonoBehaviour
 		private static void UpdateCameraBaseRotation (bool onlyHorizontal)
 		{
 				if (onlyHorizontal) {
-						var fw = _transform.forward;
+						var fw = Camera_Controller.head.forward;
 						fw.y = 0;
 						if (fw == Vector3.zero) {
 								cameraBase = Quaternion.identity;
@@ -129,7 +111,7 @@ public class Camera_Mobile : MonoBehaviour
 								cameraBase = Quaternion.FromToRotation (Vector3.forward, fw);
 						}
 				} else {
-						cameraBase = _transform.rotation;
+						cameraBase = Camera_Controller.head.rotation;
 				}
 		}
 

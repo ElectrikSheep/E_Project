@@ -9,15 +9,30 @@ using Movement_Control = Movement_Mobile ;
 
 public class Movement_Controller : MonoBehaviour {
 
-		[SerializeField] private float speed_Sensitivity = 1f ;
-		[SerializeField] private float straffing_Sensitivity = 1f ;
-		[SerializeField] private bool isKeyboard = false ;
+		[SerializeField] private float _speed_Sensitivity = 1f ;
+		[SerializeField] private float _straffing_Sensitivity = 1f ;
+		[SerializeField] private bool _isKeyboard = false ;
 
-		private bool is_Intro = false ;
+		public static Transform playerPos ;
+		public static float speedSensitivity ;
+		public static float strafSensitivity ;
+		public static bool isKeyboard ;
+
+		private static bool is_Intro = false ;
+
+		public static void Set_IntroTo( bool val ){
+				is_Intro = val ;
+		}
 
 		private void Start() {
-				is_Intro = false ;
-				Movement_Control.Init_Controller( speed_Sensitivity, straffing_Sensitivity, transform, isKeyboard ) ;
+
+				is_Intro = true ;
+				speedSensitivity = _speed_Sensitivity ;
+				strafSensitivity = _straffing_Sensitivity ;
+				isKeyboard = _isKeyboard ;
+
+				playerPos = transform ;
+
 		}
 
 		public void StartMoving() {

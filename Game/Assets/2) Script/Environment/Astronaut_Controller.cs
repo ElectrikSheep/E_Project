@@ -13,9 +13,12 @@ public class Astronaut_Controller : MonoBehaviour {
 		private Animation _Animation ;
 		[SerializeField]
 		private Enemy_Spawner _s ;
+		[SerializeField]
+		private float movementSpeed = 1f ;
+
 
 		private int index ;
-
+		private Vector3 _tempPlayerPos ;
 
 		public void set_EnemyIndex( int _i ) {
 				index = _i ;
@@ -25,23 +28,38 @@ public class Astronaut_Controller : MonoBehaviour {
 		// Update is called once per frame
 		virtual protected void Update () {
 				if( is_InPool ) return ;
-				transform.LookAt( Character_Controller._position, transform.up );
-				transform.Translate(
-						0f, 0f,.08f, Space.Self );
 
-				if( Character_Controller._position.z - transform.position.z > 10f ){
+				_tempPlayerPos =  Character_Controller._position ;
+
+				transform.LookAt( _tempPlayerPos, transform.up );
+				transform.Translate(
+						0f, 0f,movementSpeed, Space.Self );
+
+				Get_PlayerDistance() ;
+
+				if( _tempPlayerPos.z - transform.position.z > 10f ){
 						End_ofLife() ;
 				}
 		}
 
 
 		public virtual void Enable_Move( Vector2 _v) {
-				is_InPool = false ;
-				transform.position= new Vector3
-				                    (_v.x, 0f, _v.y);
-				transform.LookAt( Vector3.zero, transform.up ) ;
-				//		_Animation.Play("Walk") ;
+				transform.position= new Vector3(_v.x, 0f, _v.y);
+				StartCoroutine( entranceAnimation() );
 		}
+		private IEnumerator entranceAnimation() {
+				transform.LookAt( Vector3.zero, transform.up ) ;
+				_Animation.Play("intro");
+				while( _Animation.isPlaying ){
+						transform.LookAt( _tempPlayerPos, transform.up );
+						yield return null ;
+				}
+
+				is_InPool = false ;
+				_Animation["walking"].wrapMode = WrapMode.Loop ;
+				_Animation.Play("walking") ;
+		}
+
 
 
 		public virtual void Decrease_LifePoint( int hitPoints ){
@@ -57,6 +75,8 @@ public class Astronaut_Controller : MonoBehaviour {
 				is_EndOfLife = false ;
 				lifePoint = MAX_LifePoint ;
 				transform.localPosition = Vector3.zero;
+
+				_Animation.Stop() ;
 
 				if( _s == null  ) Destroy( gameObject );
 				else _s.UnUse_Enemy( index );
@@ -74,4 +94,53 @@ public class Astronaut_Controller : MonoBehaviour {
 				while( _Animation.isPlaying ) yield return null ;
 				End_ofLife() ;
 		}
+
+
+
+
+
+		private void Get_PlayerDistance() {
+				float distance = Vector3.Distance( transform.position, _tempPlayerPos );
+				if( distance < Enemy_Spawner.KILLING_DISTANCE )
+						Debug.Log("Deadsies");
+		}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
