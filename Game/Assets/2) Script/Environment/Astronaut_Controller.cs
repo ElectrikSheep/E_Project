@@ -50,9 +50,15 @@ public class Astronaut_Controller : MonoBehaviour {
 		private IEnumerator entranceAnimation() {
 				transform.LookAt( Vector3.zero, transform.up ) ;
 				_Animation.Play("intro");
+
+
 				while( _Animation.isPlaying ){
 						transform.LookAt( _tempPlayerPos, transform.up );
 						yield return null ;
+
+						if( _tempPlayerPos.z - transform.position.z > 10f ){
+								End_ofLife() ;
+						}
 				}
 
 				is_InPool = false ;
