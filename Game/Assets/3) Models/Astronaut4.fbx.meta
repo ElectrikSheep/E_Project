@@ -1177,6 +1177,7 @@ ModelImporter:
     7400000: intro
     7400002: walking
     9500000: //RootNode
+    11100000: //RootNode
     13700000: polySurface227
   materials:
     importMaterials: 1
@@ -1236,7 +1237,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .00999999978
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -1270,5 +1271,5 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   additionalBone: 1
-  animationType: 2
+  animationType: 1
   userData: 

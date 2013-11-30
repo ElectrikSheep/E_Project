@@ -15735,8 +15735,8 @@ Animation:
   m_AnimatePhysics: 0
   m_CullingType: 1
   m_UserAABB:
-    m_Center: {x: -.168815613, y: -.0341835022, z: 1.27448177}
-    m_Extent: {x: 3.24291611, y: 9.77406883, z: 3.15523577}
+    m_Center: {x: -.168815613, y: -.24219656, z: 1.27448177}
+    m_Extent: {x: 3.24291611, y: 9.56604004, z: 3.15523577}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15749,7 +15749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MAX_LifePoint: 1
-  _Animation: {fileID: 11100000}
+  _Animation: {fileID: 0}
   _s: {fileID: 0}
   movementSpeed: .00999999978
 --- !u!136 &13600000
