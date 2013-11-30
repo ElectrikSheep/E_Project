@@ -7,13 +7,13 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/1) Scene/Main_Scenes/Menu.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/1) Scene/Game_v100.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/1) Scene/Game_v101.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/1) Scene/Game_v102.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/1) Scene/hGyro_Game.unity
   - enabled: 1
     path: Assets/1) Scene/Tileable_GroundRepear.unity

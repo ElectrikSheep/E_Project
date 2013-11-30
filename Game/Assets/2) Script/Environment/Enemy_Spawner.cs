@@ -17,6 +17,7 @@ public class Enemy_Spawner : MonoBehaviour {
 		[SerializeField]
 		private Transform _playerPos ;
 
+
 		[SerializeField]
 		private float killDistance = 10f ;
 
@@ -109,8 +110,9 @@ public class Enemy_Spawner : MonoBehaviour {
 		}
 
 		private Vector2 Get_RandomPosition( ) {
-				float angle = Random.Range(-wideSpawnDistance, wideSpawnDistance) ;
-				float distance = Random.Range( 45f,85f);
+		float angle = Random.Range(-wideSpawnDistance, wideSpawnDistance) ;
+		float distance = Random.Range( closeSpawnDistance,farSpawnDistance);
+
 				return new Vector2(
 						_playerPos.position.x + angle ,//distance * Mathf.Cos( angle ),
 						_playerPos.position.z + distance );//* Mathf.Sin( angle ) );

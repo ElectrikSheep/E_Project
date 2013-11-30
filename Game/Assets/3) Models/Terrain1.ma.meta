@@ -446,6 +446,7 @@ ModelImporter:
     4300000: MarsTerrain1_G
     4300002: MarsTerrain1_G1
     4300004: polySurface209
+    4300006: Terrain1:polySurface209
     9500000: //RootNode
   materials:
     importMaterials: 1
