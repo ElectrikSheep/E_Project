@@ -22,6 +22,7 @@ public class Movement_Controller : MonoBehaviour {
 
 		public static void Set_IntroTo( bool val ){
 				is_Intro = val ;
+				Movement_Control.Init_Module() ;
 		}
 
 		private void Start() {
