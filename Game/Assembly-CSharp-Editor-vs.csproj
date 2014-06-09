@@ -12,13 +12,14 @@
 	<AssemblyName>Assembly-CSharp-Editor</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 	<DebugSymbols>true</DebugSymbols>
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_IPHONE;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_WWW;ENABLE_IMAGEEFFECTS;UNITY_IPHONE_API;ENABLE_WEBCAM;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GAMECENTER;UNITY_IOS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_2_2;UNITY_4_2;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX;ENABLE_DUCK_TYPING</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_WEBPLAYER;WEBPLUG;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_4;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -36,6 +37,7 @@
 	<Reference Include="System" />
     <Reference Include="System.XML" />
 	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
 	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
 	</Reference>
@@ -44,18 +46,44 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\External Tools\ObjectExporter\Editor\EditorObjExporter.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_Autorun.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_DatePicker.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_DeleteAssetBundleMenu.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_EventPicker.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_ExampleTutorial.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_HeatMapInspector.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_HeatMapRendererInspector.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_HeatmapColorPresetPicker.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_HeatmapCombineTypePicker.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_Inspector.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_Menu.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_SetupWizard.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_Status.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_SystemTrackerInspector.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_TrackerInspector.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_UpdateWindow.cs" />
+     <Compile Include="Assets\GameAnalytics\Editor\GA_WebInterface.cs" />
+     <Compile Include="Assets\GameAnalytics\Plugins\Playmaker\Editor\PlayMakerPresenceCheck.cs" />
+     <Compile Include="Assets\GameAnalytics\Plugins\Playmaker\Editor\SendUserEventActionEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\ActiveAnimationEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\BMFontReader.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\ComponentSelector.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\EventDelegateDrawer.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\EventDelegateEditor.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\FreeType.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\NGUIContextMenu.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\NGUIEditorExtensions.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\NGUIEditorTools.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\NGUIHandles.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\NGUIHelp.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\NGUIJson.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\NGUIMenu.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\NGUISelectionTools.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\NGUISettings.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\NGUISnap.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\NGUITransformInspector.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\PropertyBindingEditor.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\PropertyReferenceDrawer.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\SpriteSelector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\TweenAlphaEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\TweenColorEditor.cs" />
@@ -68,31 +96,45 @@
      <Compile Include="Assets\NGUI\Scripts\Editor\TweenTransformEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\TweenVolumeEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\TweenWidthEditor.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\UI2DSpriteEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIAnchorEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIAtlasInspector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIAtlasMaker.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\UIBasicSpriteEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIButtonColorEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIButtonEditor.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\UIButtonKeysEditor.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\UIButtonMessageEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UICameraEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UICameraTool.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UICreateNewUIWizard.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UICreateWidgetWizard.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\UIDragObjectEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIDraggablePanelEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIDrawCallInspector.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\UIDrawCallViewer.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\UIEventTriggerEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIFontInspector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIFontMaker.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\UIForwardEventsEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIGridEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIImageButtonInspector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIInputEditor.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\UIKeyNavigationEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UILabelInspector.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\UILocalizeEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIPanelInspector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIPanelTool.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIPlayAnimationEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIPlayTweenEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIPopupListInspector.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\UIPrefabTool.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\UIRectEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIRootEditor.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\UIScrollBarEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIScrollBarInspector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UISliderInspector.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\UISnapshotPointEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UISpriteAnimationInspector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UISpriteInspector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIStretchEditor.cs" />
@@ -103,19 +145,34 @@
      <Compile Include="Assets\NGUI\Scripts\Editor\UITweenerEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIWidgetContainerEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
+     <Compile Include="Assets\NGUI\Scripts\Editor\UIWrapContentEditor.cs" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\AndromedaSystem\Shaders\HologramSemiSolid(BetterPerforming)+1.shader" />
+     <None Include="Assets\NGUI\ReadMe - 3.6.3.txt" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
+     <None Include="Assets\GameAnalytics\Plugins\Framework\Shaders\GA_HeatMapSolidOverlay.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text (SoftClip).shader" />
+     <None Include="Assets\GameAnalytics\Plugins\Framework\Shaders\GA_HeatMapTransparentOverlay.shader" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Dynamic Font (AlphaClip).shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Masked Colored.shader" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
+     <None Include="Assets\GameAnalytics\Plugins\Framework\Shaders\GA_HeatMapSolid.shader" />
      <None Include="Assets\Shaders\Planet.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (AlphaClip) .shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (AlphaClip).shader" />
+     <None Include="Assets\GameAnalytics\Plugins\Framework\Shaders\GA_HeatMapTransparent.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (AlphaClip).shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text (AlphaClip).shader" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
      <None Include="Assets\AndromedaSystem\Shaders\HologramStatic.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Dynamic Font (SoftClip).shader" />
+     <None Include="Assets\GameAnalytics\Plugins\WebPlayer\Readme_WebPlayer.txt" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
      <None Include="Assets\AndromedaSystem\Shaders\HologramSemiSolid(BetterPerforming).shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (SoftClip).shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (SoftClip).shader" />
@@ -124,17 +181,18 @@
      <None Include="Assets\AndromedaSystem\Shaders\Hologram2DTextures.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.0.5.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+     <None Include="Assets\GameAnalytics\Plugins\iOS\iOS_Readme.txt" />
      <None Include="Assets\AndromedaSystem\Shaders\HologramFullSolid.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed).shader" />
+     <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
+     <None Include="Assets\GameAnalytics\Plugins\WebPlayer\crossdomain.xml" />
      <None Include="Assets\NGUI\1. Which Version To Import.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Additive Colored.shader" />
+     <None Include="Assets\GameAnalytics\Plugins\Android\Android_Readme.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Depth.shader" />
      <None Include="Assets\AndromedaSystem\Shaders\HologramFullSolid+1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (SoftClip).shader" />
- <Reference Include="Library\ScriptAssemblies\Assembly-UnityScript">
- <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
- </Reference>
  <Reference Include="\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEditor.Graphs">
  <HintPath>\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEditor.Graphs.dll</HintPath>
  </Reference>

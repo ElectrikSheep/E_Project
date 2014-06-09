@@ -1,8 +1,8 @@
-Shader "Unlit/Transparent Colored (Packed)"
+Shader "Unlit/Transparent Packed"
 {
 	Properties
 	{
-		_MainTex ("Base (RGB), Alpha (A)", 2D) = "white" {}
+		_MainTex ("Base (RGB), Alpha (A)", 2D) = "black" {}
 	}
 
 	SubShader

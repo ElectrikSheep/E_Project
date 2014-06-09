@@ -1,35 +1,19 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/2) Script/PlayerController/Character_Controller.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Script/General/EP_Menu.cs">
     <Files>
-      <File FileName="Assets/2) Script/CameraController/Camera_Desktop.cs" Line="33" Column="5" />
-      <File FileName="Assets/2) Script/CameraController/Camera_Controller.cs" Line="21" Column="34" />
-      <File FileName="Assets/2) Script/CameraController/Camera_Mobile.cs" Line="22" Column="53" />
-      <File FileName="Assets/2) Script/PlayerController/Movement_Controller.cs" Line="23" Column="16" />
-      <File FileName="Assets/2) Script/PlayerController/Movement_Desktop.cs" Line="11" Column="63" />
-      <File FileName="Assets/2) Script/PlayerController/Movement_Mobile.cs" Line="8" Column="41" />
-      <File FileName="Assets/2) Script/PlayerController/Character_Controller.cs" Line="56" Column="25" />
-      <File FileName="Assets/2) Script/Environment/Astronaut_Controller.cs" Line="79" Column="24" />
-      <File FileName="Assets/2) Script/Environment/Enemy_Spawner.cs" Line="26" Column="20" />
-      <File FileName="Assets/2) Script/UI_Script/UI_Controller.cs" Line="10" Column="53" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/2) Script/Environment/Enemy_Spawner.cs">
-    <Files>
-      <File FileName="Assets/2) Script/PlayerController/Character_Controller.cs" Line="1" Column="1" />
-      <File FileName="Assets/2) Script/PlayerController/Movement_Controller.cs" Line="1" Column="1" />
-      <File FileName="Assets/2) Script/Scene_Controller.cs" Line="1" Column="1" />
-      <File FileName="Assets/2) Script/Environment/Enemy_Spawner.cs" Line="104" Column="61" />
-      <File FileName="Assets/2) Script/Environment/Astronaut_Controller.cs" Line="1" Column="1" />
-      <File FileName="Assets/2) Script/CameraController/Camera_Mobile.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GyroController.cs" Line="1" Column="1" />
->>>>>>> 2c9960b93549da88e73f87ba6ad945b95e5b3846
+      <File FileName="Assets/_Script/PlayerController/SE_PlayerController.cs" Line="40" Column="3" />
+      <File FileName="Assets/_Script/PlayerController/Movement_Controller.cs" Line="25" Column="27" />
+      <File FileName="Assets/_Script/UI_Script/SEUI_Game.cs" Line="52" Column="3" />
+      <File FileName="Assets/_Script/Environment/ES_EnemyController.cs" Line="109" Column="31" />
+      <File FileName="Assets/_Script/Environment/ES_HordeController.cs" Line="44" Column="3" />
+      <File FileName="Assets/_Script/Environment/ES_GameController.cs" Line="109" Column="32" />
+      <File FileName="Assets/_Script/Environment/Ground_Controller.cs" Line="30" Column="4" />
+      <File FileName="Assets/_Script/General/EP_Menu.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/lionelmille/Documents/Projects/E_Project/Game/Assets/Scripts/GyroController.cs" line="6" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
